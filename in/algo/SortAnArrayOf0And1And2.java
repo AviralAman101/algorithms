@@ -2,7 +2,7 @@ package in.algo;
 
 import java.util.Arrays;
 
-public class SortAnArrayOf0And1 {
+public class SortAnArrayOf0And1And2 {
     public static void main(String[] args) {
         int[] a = {0, 2, 1, 2, 0};
         sort012(a,5);
