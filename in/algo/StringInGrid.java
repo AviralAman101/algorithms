@@ -1,6 +1,8 @@
 package in.algo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
 * Given a 2D grid of n*m of characters and a word, find all occurrences of given word in grid.
 * A word can be matched in all 8 directions at any point.
@@ -34,7 +36,15 @@ Note: The returning list should be lexicographically smallest.
     From (1,0) we can find "abe" in horizontally right direction.
 * */
 public class StringInGrid {
-    public int[][] searchWord(char[][] grid, String word)
+    public static void main(String[] args) {
+        char[][] test ={{'a','b','c'},{'d','r','f'},{'g','h','i'}};
+
+        for (var ar: searchWord(test,"abc")) {
+            System.out.println(Arrays.toString(ar));
+        };
+
+    }
+    public static int[][] searchWord(char[][] grid, String word)
     {
         // Code here
         int row = grid.length;
@@ -56,7 +66,7 @@ public class StringInGrid {
         }
         return ans;
     }
-    public boolean search2D(char grid[][], int row, int col, char word[], int x[], int y[])
+    public static boolean search2D(char grid[][], int row, int col, char word[], int x[], int y[])
     {
         int R = grid.length;
         int C = grid[0].length;
