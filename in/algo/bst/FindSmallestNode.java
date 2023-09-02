@@ -33,4 +33,15 @@ public class FindSmallestNode {
             current = current.left;
         return current;
     }
+
+    public static void main(String[] args) {
+        node root = null;
+        root = insert(root, 80);
+        insert(root, 90);
+        insert(root, 70);
+        insert(root, 60);
+        insert(root, 100);
+
+        System.out.println(getSmallestNode(root).key);
+    }
 }
