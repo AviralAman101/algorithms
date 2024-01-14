@@ -1,6 +1,7 @@
 package in.algo;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class TrieNodeMatrixSearch {
     /*
@@ -38,7 +39,7 @@ matrix as input parameter and returns a list of row numbers which are duplicate 
             { 1, 0, 0},
             { 0, 0, 0},
             { 0, 0, 0}};
-        System.out.println(repeatedRows(matrix, 4, 3));
+        System.out.println(findRepeatedRows(matrix, 4, 3));
     }
     /* Trie Node */
     static class Trie {
@@ -51,36 +52,30 @@ matrix as input parameter and returns a list of row numbers which are duplicate 
         }
     }
 
-    static boolean insert(Trie head, int[] arr, int N) {
-        Trie curr = head;
-
-        for (int i = 0; i < N; i++) {
-            /* Creating a new path if it does not exist */
-            if (curr.children[arr[i]] == null)
-                curr.children[arr[i]] = new Trie();
-
-            curr = curr.children[arr[i]];
+    static boolean insertAndCheck(Trie head, int[] row, int coulmns){
+        Trie current = head;
+        for (int i = 0; i < coulmns; i++) {
+            if(Objects.isNull(current.children[row[i]])){
+                current.children[row[i]]=new Trie();
+            }
+            current = current.children[row[i]];
         }
-
         /* If the row already exists, return false */
-        if (curr.leaf)
+        if(current.leaf)
             return false;
 
-        /* Making the leaf node true and returning true */
-        return (curr.leaf = true);
+        return current.leaf=true;
     }
 
-    public static ArrayList<Integer> repeatedRows(int[][] matrix, int m, int n) {
+    static ArrayList<Integer> findRepeatedRows(int[][] matrix, int rows, int columns){
         Trie head = new Trie();
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        /* Inserting into Trie and checking for duplicates */
-        for (int i = 0; i < m; i++)
-
-            // If already exists
-            if (!insert(head, matrix[i], n))
-                ans.add(i);
-
-        return ans;
+        ArrayList<Integer> rowNums = new ArrayList<>();
+        for (int i = 0; i < rows; i++) {
+            // Checks if row already exists otherwise inserts
+            if(!insertAndCheck(head, matrix[i], columns))
+                rowNums.add(i);
+        }
+        return rowNums;
     }
+
 }
