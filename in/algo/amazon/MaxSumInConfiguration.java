@@ -53,6 +53,23 @@ public class MaxSumInConfiguration {
         return max.longValue();
     }
 
+    static long max_sumWithoutBigInt(int a[], int n) {
+        long sumConstant=0;
+        long currVal=0;
+        for (int i = n-1; i >= 0; i--) {
+            sumConstant+=a[i];
+            currVal += (long)(i)*(long)a[i];
+        }
+
+        long max = currVal;
+        for (int i = 0; i < n-1; i++) {
+            currVal = currVal + (long)n*(long)a[i] - sumConstant;
+            if(currVal>max) max = currVal;
+        }
+
+        return max;
+    }
+
 //    public static void main(String args[]) throws FileNotFoundException {
 //        Scanner sc = new Scanner(new FileInputStream("C:\\Users\\avira\\Downloads\\testx1.txt"));
 //            int n = sc.nextInt();
