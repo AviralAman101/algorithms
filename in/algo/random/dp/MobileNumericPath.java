@@ -107,7 +107,10 @@ Expected Auxiliary Space: O(n)
 
     public static long getCount(int n) {
         char[][] keypad = {
-                {'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}, {'*', '0', '#'}};
+                {'1', '2', '3'},
+                {'4', '5', '6'},
+                {'7', '8', '9'},
+                {'*', '0', '#'}};
 
         return getCountUtil(keypad, n);
     }
