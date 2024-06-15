@@ -68,7 +68,6 @@ Expected Auxiliary Space: O(n)
             count[i][0] = 0;
             count[i][1] = 1;
         }
-        Arrays.stream(count).forEach(as -> System.out.println(Arrays.toString(as)));
         // Bottom up - Get number count of length 2, 3, 4, ... , n
         for (k = 2; k <= n; k++) {
             for (i = 0; i < 4; i++) {     // Loop on keypad row
@@ -98,12 +97,7 @@ Expected Auxiliary Space: O(n)
                     }
                 }
             }
-            System.out.println("*****************************");
-            Arrays.stream(count).forEach(as -> System.out.println(Arrays.toString(as)));
         }
-
-
-
         // Get count of all possible numbers of length "n" starting
         // with digit 0, 1, 2, ..., 9
         totalCount = 0;
