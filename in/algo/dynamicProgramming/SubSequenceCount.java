@@ -1,4 +1,4 @@
-package in.algo.random.dp;
+package in.algo.dynamicProgramming;
 
 /*
 * Given two strings, s1 and s2, count the number of subsequences of string s1 equal to string s2.

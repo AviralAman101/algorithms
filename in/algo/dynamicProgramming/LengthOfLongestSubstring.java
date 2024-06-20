@@ -1,4 +1,4 @@
-package in.algo.random.dp;
+package in.algo.dynamicProgramming;
 
 public class LengthOfLongestSubstring {
     public static void main(String[] args) {

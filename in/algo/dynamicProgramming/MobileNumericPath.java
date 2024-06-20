@@ -1,6 +1,4 @@
-package in.algo.random.dp;
-
-import java.util.Arrays;
+package in.algo.dynamicProgramming;
 
 public class MobileNumericPath {
 

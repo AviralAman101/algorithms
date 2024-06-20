@@ -1,4 +1,4 @@
-package in.algo.random.dp;
+package in.algo.dynamicProgramming;
 
 public class FibonacciUsingDP {
     static int fib(int n)

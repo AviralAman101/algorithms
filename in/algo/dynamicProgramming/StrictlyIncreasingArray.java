@@ -1,4 +1,4 @@
-package in.algo.random.dp;
+package in.algo.dynamicProgramming;
 
 import java.util.Arrays;
 
