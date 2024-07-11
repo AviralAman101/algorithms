@@ -86,4 +86,25 @@ public class CountSquareSumMatrices {
 
         return count;
     }
+
+    private static int count(int[][] mat, int n, int m){
+        int count = 0;
+        // loop through each element in the matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                // check if the element is not in the first row or column
+                // and it is not equal to zero
+                if ((i != 0 && j != 0) && mat[i][j] != 0) {
+                    // calculate the minimum of the three adjacent elements and add it
+                    // to the current element
+                    mat[i][j] = mat[i][j] +
+                            Math.min(mat[i - 1][j],
+                                    Math.min(mat[i - 1][j - 1], mat[i][j - 1]));
+                    count = count + mat[i][j];
+                }
+            }
+        }
+        // return the maximum square value
+        return count;
+    }
 }
