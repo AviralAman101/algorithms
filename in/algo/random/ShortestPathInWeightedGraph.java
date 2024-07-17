@@ -65,36 +65,23 @@ public class ShortestPathInWeightedGraph {
     }
 
     public static List<Integer> shortestPath(int n, int m, int edges[][]) {
-        //  Code Here.
         long[][] dp = new long[2][n + 1];
         Arrays.fill(dp[0], 9999);
         dp[0][1]=0;
-        for (int i = 0; i < m; i++) {
-            int st=edges[i][0];
-            int end=edges[i][1];
-            int weight=edges[i][2];
-            if(dp[0][end]> weight+dp[0][st]) {
-                dp[0][end] = weight+dp[0][st];
-                if(st==1){
-                    dp[1][end]=(st*10)+end;
-                }else {
-                    dp[1][end] = (dp[1][st]*10)+end;
+        for (int j = 0; j < 2; j++) {
+            for (int i = 0; i < m; i++) {
+                int st=edges[i][0];
+                int end=edges[i][1];
+                int weight=edges[i][2];
+                if(dp[0][end]> weight+dp[0][st]) {
+                    dp[0][end] = weight+dp[0][st];
+                    if(st==1){
+                        dp[1][end]=(st*10)+end;
+                    }else {
+                        dp[1][end] = (dp[1][st]*10)+end;
+                    }
                 }
             }
-        }
-        for (int i = 0; i < m; i++) {
-            int st=edges[i][0];
-            int end=edges[i][1];
-            int weight=edges[i][2];
-            if(dp[0][end]> weight+dp[0][st]) {
-                dp[0][end] = weight + dp[0][st];
-                if(st==1){
-                    dp[1][end]=(st*10)+end;
-                }else {
-                    dp[1][end] = (dp[1][st]*10)+end;
-                }
-            }
-
         }
         //System.out.println(Arrays.toString(dp[1]));
         return getResultList(dp, n);
