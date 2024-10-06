@@ -7,10 +7,10 @@ The nth term in the sequence denoted Cn, is found in the following formula: \fra
 
 The first few Catalan numbers for n = 0, 1, 2, 3, … are : 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, …  */
 public class CatalanNumberUsingDP {
-    static int catalanDP(int n)
+    static int catalanDPBottomUp(int n)
     {
         // Table to store results of subproblems
-        int catalan[] = new int[n + 2];
+        long catalan[] = new long[n + 2];
 
         // Initialize first two values in table
         catalan[0] = 1;
@@ -19,22 +19,21 @@ public class CatalanNumberUsingDP {
         // Fill entries in catalan[]
         // using recursive formula
         for (int i = 2; i <= n; i++) {
-            catalan[i] = 0;
             for (int j = 0; j < i; j++) {
                 catalan[i]
-                        += catalan[j] * catalan[i - j - 1];
+                        += ((catalan[j]%1000000007) * (catalan[i - j - 1]%1000000007))%1000000007;
             }
         }
 
         // Return last entry
-        return catalan[n];
+        return (int)(catalan[n] % 1000000007);
     }
 
     // Driver code
     public static void main(String[] args)
     {
         for (int i = 0; i < 10; i++) {
-            System.out.print(catalanDP(i) + " ");
+            System.out.print(catalanDPBottomUp(i) + " ");
         }
     }
 }
