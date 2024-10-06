@@ -17,7 +17,6 @@ public class CatalanNumberUsingDP {
         catalan[1] = 1;
 
         // Fill entries in catalan[]
-        // using recursive formula
         for (int i = 2; i <= n; i++) {
             for (int j = 0; j < i; j++) {
                 catalan[i]
